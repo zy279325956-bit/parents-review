@@ -291,7 +291,7 @@ section.s.alt{background:var(--cream-2);}
       <div class="s-title">愿得一人心</div>
     </div>
 
-    <div class="zone-tag reveal"><i></i><b>新中式 · 喜结良缘</b><i></i></div>
+    <div class="zone-tag reveal"><i></i><b>华裳 · 喜结良缘</b><i></i></div>
     <div class="album reveal">
       <div class="ph wide"><img loading="lazy" src="assets/p41.png" alt=""></div>
       <div class="g2">
@@ -300,7 +300,7 @@ section.s.alt{background:var(--cream-2);}
       </div>
     </div>
 
-    <div class="zone-tag reveal"><i></i><b>白纱 · 一生相守</b><i></i></div>
+    <div class="zone-tag reveal"><i></i><b>云纱 · 一生相守</b><i></i></div>
     <div class="album reveal">
       <div class="ph wide"><img loading="lazy" src="assets/p57.png" alt=""></div>
       <div class="g2">
@@ -309,7 +309,7 @@ section.s.alt{background:var(--cream-2);}
       </div>
     </div>
 
-    <div class="zone-tag reveal"><i></i><b>户外 · 与子偕老</b><i></i></div>
+    <div class="zone-tag reveal"><i></i><b>暖阳 · 与子偕老</b><i></i></div>
     <div class="album reveal">
       <div class="g2">
         <div class="ph tall"><img loading="lazy" src="assets/p64.png" alt=""></div>
@@ -430,13 +430,11 @@ section.s.alt{background:var(--cream-2);}
     '同沾喜气，共飨佳酿。';
   body.innerHTML = mode==='groom' ? groomTxt : (mode==='bride' ? brideTxt : bothTxt);
 
-  // ---- signature (落款) by family ----
+  // ---- signature (落款) by family：仅署父母姓名，不标注"新郎/新娘父母"以免显得分家 ----
   var sign = document.getElementById('signNames');
-  var groomSign = '<div class="sx" style="margin-bottom:4px">新郎父母</div>父 郑理顺<span>母 姚流瑛</span>';
-  var brideSign = '<div class="sx" style="margin-bottom:4px">新娘父母</div>父 黄兴武<span>母 黄慧</span>';
-  var bothSign =
-    '<div class="sx" style="margin-bottom:4px">新郎父母</div>郑理顺<span>姚流瑛</span>' +
-    '<div class="sx" style="margin:10px 0 4px">新娘父母</div>黄兴武<span>黄慧</span>';
+  var groomSign = '父 郑理顺<span>母 姚流瑛</span>';
+  var brideSign = '父 黄兴武<span>母 黄慧</span>';
+  var bothSign  = '郑理顺<span>姚流瑛</span><span>黄兴武</span><span>黄慧</span>';
   sign.innerHTML = mode==='groom' ? groomSign : (mode==='bride' ? brideSign : bothSign);
 })();
 
