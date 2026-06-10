@@ -171,12 +171,17 @@ section.s.alt{background:var(--cream-2);}
 .info-card .place{font-size:20px;color:#fff;font-weight:600;line-height:1.5;}
 .info-card .hall{font-size:16px;color:var(--gold-bright);margin-top:6px;}
 .info-card .addr{font-size:14px;color:rgba(247,239,223,.78);margin-top:10px;line-height:1.7;}
-.map-btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;justify-content:center;}
+.map-btns{display:flex;gap:8px;margin-top:18px;justify-content:center;}
 .mbtn{
-  flex:1;min-width:120px;display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  padding:13px 10px;border-radius:40px;font-size:15px;font-weight:600;font-family:var(--serif);
+  flex:1;min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  padding:12px 6px;border-radius:40px;font-size:14px;font-weight:600;font-family:var(--serif);
+  white-space:nowrap;
   border:1px solid var(--gold-soft);background:rgba(220,189,116,.14);color:var(--gold-bright);
   text-decoration:none;cursor:pointer;transition:background .2s,transform .1s;
+}
+@media (max-width:360px){
+  .map-btns{gap:6px;}
+  .mbtn{font-size:12.5px;padding:11px 4px;gap:4px;}
 }
 .mbtn.solid{background:var(--gold-soft);color:var(--red-deep);border-color:var(--gold-bright);}
 .mbtn:active{transform:scale(.97);}
@@ -443,20 +448,20 @@ section.s.alt{background:var(--cream-2);}
    2. MAP / NAVIGATION
    ============================================================ */
 (function(){
-  var keyword = "广德市老四川大酒店";
-  var addr = "安徽省广德市 老四川大酒店 三楼天空之镜宴会厅";
+  // 页面展示地址保持不变；导航与复制统一传这个名称，便于地图精确定位
+  var place = "老四川大酒店（复兴北街店）";
   document.getElementById('navAmap').href =
-    "https://uri.amap.com/search?keyword=" + encodeURIComponent(keyword);
+    "https://uri.amap.com/search?keyword=" + encodeURIComponent(place) + "&city=广德";
   document.getElementById('navBaidu').href =
-    "https://api.map.baidu.com/geocoder?address=" + encodeURIComponent(keyword) +
+    "https://api.map.baidu.com/geocoder?address=" + encodeURIComponent(place) +
     "&output=html&src=webapp.wedding";
   var cp = document.getElementById('copyAddr');
   cp.addEventListener('click', function(){
     var done=function(){var t=cp.textContent;cp.textContent="✓ 已复制";setTimeout(function(){cp.textContent=t;},1600);};
     if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(addr).then(done,function(){fallback();});
+      navigator.clipboard.writeText(place).then(done,function(){fallback();});
     }else fallback();
-    function fallback(){var ta=document.createElement('textarea');ta.value=addr;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);}
+    function fallback(){var ta=document.createElement('textarea');ta.value=place;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);}
   });
 })();
 
